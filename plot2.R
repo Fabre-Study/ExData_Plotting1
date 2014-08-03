@@ -3,6 +3,9 @@
 ## must use - data.table library
 
 ## Read Data
+library(ggplot2)
+library(data.table)
+Sys.setlocale("LC_TIME","C")
 my.temp <- read.table("household_power_consumption.txt", header = TRUE, sep=";", nrows=5)
 my.classes <- sapply(my.temp, class)
 my.data <- read.table("household_power_consumption.txt", header = TRUE, sep=";", colClasses = my.classes, comment.char = "", na.strings = "?")

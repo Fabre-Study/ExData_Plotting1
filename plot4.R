@@ -3,6 +3,9 @@
 ## must use - data.table library
 
 ## Read Data
+library(ggplot2)
+library(data.table)
+Sys.setlocale("LC_TIME","C")
 my.temp <- read.table("household_power_consumption.txt", header = TRUE, sep=";", nrows=5)
 my.classes <- sapply(my.temp, class)
 my.data <- read.table("household_power_consumption.txt", header = TRUE, sep=";", colClasses = my.classes, comment.char = "", na.strings = "?")
@@ -18,7 +21,7 @@ plot(my.data$DateTime, my.data$Voltage, type="l", col="Black", ylab="Voltage", x
 plot(my.data$DateTime, my.data$Sub_metering_1, type="l", col="Black", main="", xlab="", ylab="Energy sub metering")
 lines(my.data$DateTime, my.data$Sub_metering_2, type="l", col="Red")
 lines(my.data$DateTime, my.data$Sub_metering_3, type="l", col="Blue")
-legend("topright","", pch="-", col=c("Black","Red","Blue"), c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
+legend("topright","", lwd=1, col=c("Black","Red","Blue"), c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
 plot(my.data$DateTime, my.data$Global_reactive_power, type="l", col="Black", ylab="Global_reactive_power", xlab="datetime")
 dev.off()
 
